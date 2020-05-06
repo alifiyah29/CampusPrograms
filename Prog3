@@ -1,0 +1,15 @@
+#include <iostream>
+#include<string.h>
+using namespace std;
+int main()
+{
+    int num,rem,n;
+    cin>>num;
+    n=num;
+    while(n!=0){
+    rem=n%10;
+    cout<<rem;
+    n=n/10;
+    }
+    return 0;
+}
