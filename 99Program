@@ -1,0 +1,65 @@
+#include <stdio.h>
+int main()
+{
+    int num,nu,n,rev=0,rem=0,r;
+    scanf("%d",&num);
+    n=num;
+    while(n!=0){
+        rem=n%10;
+        rev=rev*10+rem;
+        n=n/10;
+    }
+    r=rev;
+    while(r!=0){
+        nu=r%10;
+        switch(nu){
+            case 1:
+            {
+                if(nu==0)
+                    printf("zero ");
+            }
+            case 2:
+            {
+                if(nu==2)
+                    printf("two ");
+            }
+            case 3:
+            {
+                if(nu==3)
+                    printf("three ");
+            }
+            case 4:
+            {
+                if(nu==4)
+                    printf("four ");
+            }
+            case 5:
+            {
+                if(nu==5)
+                    printf("five ");
+            }
+            case 6:
+            {
+                if(nu==6)
+                    printf("six ");
+            }
+            case 7:
+            {
+                if(nu==7)
+                    printf("seven ");
+            }
+            case 8:
+            {
+                if(nu==8)
+                    printf("eight ");
+            }
+            case 9:
+            {
+                if(nu==9)
+                    printf("nine ");
+            }            
+        }
+        r=r/10;
+    }
+    return 0;
+}
