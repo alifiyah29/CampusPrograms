@@ -1,0 +1,11 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int num1,num2,diff=0;
+    cin>>num1>>num2;
+    diff = num1 + (~num2) + 1; //~ is bitwise complement operator
+    cout<<diff;
+    return 0;
+}
+ 
