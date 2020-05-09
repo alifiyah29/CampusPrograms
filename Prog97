@@ -1,0 +1,18 @@
+//getchar is a function in C programming language that reads a single character from the standard input stream stdin, regardless of what it is, and returns it to the program. It is specified in ANSI-C and is the most basic input function in C. It is included in the stdio. h header file.
+
+#include <iostream>
+using namespace std;
+int printNum(int num){
+    if(num>0){
+        printNum(num-1);
+        cout<<num<<" ";
+    }
+    return 0;
+}
+
+int main()
+{
+    printNum(100);
+    getchar();
+    return 0;
+}
