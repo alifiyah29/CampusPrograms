@@ -1,0 +1,21 @@
+#include<iostream>
+using namespace std;
+int fiboFunc(int n){
+    if((n==1)||(n==0)){
+        return(n);
+    }
+    else{
+        return(fiboFunc(n-1)+fiboFunc(n-2));
+    }
+}
+ 
+int main(){
+    int num,i=0;
+    cin>>num;
+    while(i<num){
+        cout<<" "<<fiboFunc(i);
+        i++;
+    }
+ 
+    return 0;
+}
