@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+int facFunc(int n){
+    if(n>1)
+        return n*facFunc(n-1);
+    return 1;    
+}
+
+int main()
+{
+    int num,fac;
+    cin>>num;
+    fac=facFunc(num);
+    cout<<fac;
+    return 0;
+} 
