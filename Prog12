@@ -1,0 +1,17 @@
+#include<iostream>
+using namespace std;
+int powFunc(int n, int p){
+    if(p==0)
+        return 1;    
+    if(p==1)
+        return n;    
+    if(p>1)
+        return (n*powFunc(n,p-1));
+}
+int main(){
+    int num,power;
+    cin>>num;
+    cin>>power;
+    cout<<powFunc(num,power);
+    return 0;
+}
