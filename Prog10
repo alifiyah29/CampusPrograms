@@ -1,0 +1,20 @@
+//Call by value Does not copy actual values. No changes made to actual values
+#include<iostream>
+using namespace std;
+int swap(int n1, int n2){
+    cout<<"In Swap function\nNumbers before swapping"<<n1<<" "<<n2<<endl;
+    int temp=n1;
+    n1=n2;
+    n2=temp;
+    cout<<"In Swap function\nNumbers after swapping"<<n1<<" "<<n2<<endl;
+    return 0;
+}
+int main(){
+    int num1,num2;
+    cin>>num1;
+    cin>>num2;
+    cout<<"In main function\nNumbers before swapping"<<num1<<" "<<num2<<endl;
+    swap(num1,num2);
+    cout<<"In main function\nNumbers after swapping"<<num1<<" "<<num2<<endl;
+    return 0;
+}
