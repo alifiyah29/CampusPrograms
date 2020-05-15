@@ -49,3 +49,20 @@ int main()
     cout<<s;
     return 0;
 }
+
+//Part iii)
+#include <iostream>
+#include<string.h>
+using namespace std;
+int main()
+{
+    char s[50] ,ch;
+    int l,pos;
+    cin>>s;
+    cin>>pos;
+    cin>>ch;
+    l=strlen(s);
+    s[pos-1] = ch;
+    cout<<s;
+    return 0;
+}
