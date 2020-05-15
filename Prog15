@@ -1,0 +1,31 @@
+//Part i)
+#include <iostream>
+#include<string.h>
+using namespace std;
+int main()
+{
+    char s1[50],s2[50],s3[50];
+    int l1,l2,l3,pos,i,j,k,x;
+    cin>>s1;
+    cin>>s2;
+    l1=strlen(s1);
+    l2=strlen(s2);
+    cin>>pos;
+    while(i<=l1){
+        s3[i]=s1[i];
+        i++;
+    }
+    l3=l1+l2;
+    k=pos+l2;
+    for(i=pos;i<l3;i++){
+       x=s3[i];
+       if(j<l2){
+           s1[i]=s2[j];
+           j=j+1;
+       }
+       s1[k]=x;
+       k=k+1;
+    }
+    cout<<s1;
+    return 0;
+}
