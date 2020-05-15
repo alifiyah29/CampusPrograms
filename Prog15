@@ -29,3 +29,23 @@ int main()
     cout<<s1;
     return 0;
 }
+
+//Part ii)
+#include <iostream>
+#include<string.h>
+using namespace std;
+int main()
+{
+    char s[50];
+    int l,pos,n,i;
+    cin>>s;
+    cin>>pos;
+    cin>>n;
+    l=strlen(s);
+    for(i=pos+n;i<l;i++){
+        s[i-n] = s[i];
+    }
+    s[i-n] = NULL;
+    cout<<s;
+    return 0;
+}
