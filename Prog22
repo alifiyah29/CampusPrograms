@@ -1,0 +1,42 @@
+//Bubble sort
+#include <iostream>
+#define max 100
+using namespace std;
+
+void swap(int *n1, int *n2){
+    *n1=*n1+*n2;
+    *n2=*n1-*n2;
+    *n1=*n1-*n2;
+}
+
+void bubbleSort(int n, int a[]){
+    int pass,comp;
+    bool flag;
+    for(pass=0;pass<n-1;pass++){
+        flag=false;
+        for(comp=0;comp<n-pass-1;comp++){
+            if(a[comp]>a[comp+1]){
+                swap(&a[comp],&a[comp+1]);
+                flag=true;
+            }
+        }
+        if (flag == false) 
+        break;
+    }
+}
+
+void traverse(int s, int ar[]){
+    for(int i=0;i<s;i++)
+    cout<<ar[i]<<" ";
+}
+
+int main()
+{
+    int size,arr[max];
+    cin>>size;
+    for(int i=0;i<size;i++)
+        cin>>arr[i];
+    bubbleSort(size,arr);
+    traverse(size,arr);
+    return 0;
+}
