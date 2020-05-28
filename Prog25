@@ -1,0 +1,78 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include<iostream>
+using namespace std;
+
+void merge(int a[], int f, int mid, int l)  
+{  
+    int i=f,j=mid+1,k,index =f;  
+    int temp[10];  
+    while(i<=mid && j<=l)  
+    {  
+        if(a[i]<a[j])  
+        {  
+            temp[index] = a[i];  
+            i = i+1;  
+        }  
+        else   
+        {  
+            temp[index] = a[j];  
+            j = j+1;   
+        }  
+        index++;  
+    }  
+    if(i>mid)  
+    {  
+        while(j<=l)  
+        {  
+            temp[index] = a[j];  
+            index++;  
+            j++;  
+        }  
+    }  
+    else   
+    {  
+        while(i<=mid)  
+        {  
+            temp[index] = a[i];  
+            index++;  
+            i++;  
+        }  
+    }  
+    k = f;  
+    while(k<index)  
+    {  
+        a[k]=temp[k];  
+        k++;  
+    }  
+}
+
+void mergeSort(int a[], int f, int l)  
+{  
+    int mid;  
+    if(f<l)  
+    {  
+        mid = (f+l)/2;  
+        mergeSort(a,f,mid);  
+        mergeSort(a,mid+1,l);  
+        merge(a,f,mid,l);  
+    }  
+}  
+
+int main ()  
+{  
+    int n;
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++)
+        cin>>arr[i];
+    mergeSort(arr,0,n-1);
+    return 0;  
+}  
+  
