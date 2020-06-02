@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int numOfrow;
+    cin>>numOfrow;
+    for(int row=0;row<=numOfrow;row++){
+        for(int colSpace=numOfrow-row;colSpace>=1;colSpace--){
+            cout<<" ";
+        }
+        int printChar=1;
+        int num=row;
+        int den = 1;
+        for(int colChar = 0;colChar<=row;colChar++){
+            cout<<printChar<<" ";
+            printChar=printChar*num;
+            printChar=printChar/den;
+            num--;
+            den++;
+        }
+        cout<<endl;
+    }
+    return 0;
+}
