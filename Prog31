@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int num,rem,sum=0;
+    cin>>num;
+    int n=num;
+    for(int i=0;i<num;i++){
+        rem = n%10;
+        sum=sum+rem;
+        n=n/10;
+    }
+    cout<<sum;
+    return 0;
+}
