@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int r1,c1,r2,c2;
+    int M1[r1][c1],M2[r2][c2],mult[100][100];
+    cout<<"Enter rows and col of M1 = ";
+    cin>>r1>>c1;
+    cout<<"Enter rows and col of M2 = ";
+    cin>>r2>>c2;  
+    if(c1!=r2)
+        cout<<"Matrix multiplication is not possible\n";
+    else{
+        for(int i=0;i<r1;i++){
+            for(int j=0;j<c1;j++){
+                cin>>M1[i][j];
+            }
+        }
+        for(int i=0;i<r2;i++){
+            for(int j=0;j<c2;j++){
+                cin>>M2[i][j];
+            }
+        }    
+        for(int i=0;i<r1;i++){
+            for(int j=0;j<c1;j++){
+                mult[i][j]=0;
+            }
+        }
+        for(int i=0;i<r1;i++){
+            for(int j=0;j<c2;j++){
+                for(int k=0;k<c1;k++){
+                    mult[i][j] += M1[i][k]*M2[k][j];
+                }
+            }
+        }
+        cout<<"Multiplied Matrix\n";
+        for(int j, i=0;i<r1;i++){
+            for(j=0;j<c2;j++){
+            cout<<mult[i][j]<<" ";   
+            if(j==c2-1)
+                cout<<endl;
+            }    
+        }
+    }
+    return 0;
+}
