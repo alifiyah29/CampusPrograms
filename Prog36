@@ -1,0 +1,21 @@
+#include <iostream>
+#include<string.h>
+using namespace std;
+
+int strLength(char *s){
+    int count=0;
+    while(*s!=0){
+        ++count;
+        *s++;
+    }
+    cout<<count;
+    return count;
+}
+
+int main()
+{
+    char str[100];
+    cin>>str;
+    strLength(str);
+    return 0;
+}
