@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n,r,nFac=1,rFac=1,n_rFac=1;
+    cout<<"Value of n = ";
+    cin>>n;
+    cout<<"Value of r = ";
+    cin>>r;
+    if(n<r)
+        cout<<"Invalid";
+    else{
+        int n_r = n-r;
+        for(int i=1;i<=n;i++){
+            nFac=nFac*i;
+        }
+        for(int i=1;i<=r;i++){
+            rFac=rFac*i;
+        }
+        for(int i=1;i<=n_r;i++){
+            n_rFac=n_rFac*i;
+        }    
+        int nCr = nFac/(n_rFac*rFac);
+        cout<<nCr;    
+    }       
+    return 0;
+}
