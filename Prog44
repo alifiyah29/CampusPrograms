@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+int dextern;
+
+void autoDemo(){
+    cout<<"Automatic storage class\n";
+    char dauto = 'Q';
+    cout<<dauto<<endl;
+}
+
+void registerDemo(){
+    cout<<"Register storage Class\n";
+    register float dregister = 1.07;
+    cout<<dregister<<endl;
+}
+
+void externDemo(){
+    cout<<"Extern storage Class\n";
+    cout<<externDemo<<endl;
+    dextern=87;
+    cout<<"Modified value = "<<dextern<<endl;
+}
+
+void staticDemo(){
+    cout<<"Static storage Class\n";
+    int i=0;
+    for(i=1;i<5;i++){
+        static int dstatic = 5;
+        int nonstatic = 10;
+        dstatic++;
+        nonstatic++;
+        cout<<"i = "<<i<<" dstatic = "<<dstatic<<endl;
+        cout<<"i = "<<i<<" nonstatic = "<<nonstatic<<endl;
+    }
+}
+
+int main()
+{
+    autoDemo();
+    registerDemo();
+    externDemo();
+    staticDemo();
+    return 0;
+}
