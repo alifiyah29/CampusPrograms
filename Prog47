@@ -1,0 +1,39 @@
+#include<iostream>
+using namespace std;
+
+struct Student{
+    int sno;
+    char sname[100];
+    float marks;
+};
+
+int main(){
+    int n;
+    float avg = 0.0,sum = 0.0;
+    cout<<"Enter number of students = ";
+    cin>>n;
+    struct Student s[n];
+    for(int i=0;i<n;i++){
+        cout<<"Enter S.No = ";
+        cin>>s[i].sno;
+        cout<<"Enter name = ";
+        cin>>s[i].sname;
+        cout<<"Enter marks = ";
+        cin>>s[i].marks;
+    }
+    for(int i=0;i<n;i++){
+        sum = sum + s[i].marks;
+        avg = sum/n;
+    }    
+    for(int i=0;i<n;i++){
+        if(s[i].marks >= avg){
+            cout<<"S.No = ";
+            cout<<s[i].sno<<endl;
+            cout<<"name = ";
+            cout<<s[i].sname<<endl;
+            cout<<"marks = ";
+            cout<<s[i].marks<<endl;
+        }
+    }
+    return 0;
+}
