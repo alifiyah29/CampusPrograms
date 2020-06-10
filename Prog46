@@ -1,0 +1,41 @@
+#include<iostream>
+using namespace std;
+
+typedef struct Complex{
+    int real;
+    int img;
+}complexNo;
+
+complexNo addComplexNum(Complex n1, Complex n2){
+    Complex sum;
+    sum.real = n1.real+n2.real;
+    sum.img = n1.img+n2.img;
+    return sum;
+}
+
+complexNo subComplexNum(Complex n1, Complex n2){
+    Complex diff;
+    diff.real = n1.real-n2.real;
+    diff.img = n1.img-n2.img;
+    return diff;
+}
+
+complexNo multComplexNum(Complex n1, Complex n2){
+    Complex mult;
+    mult.real = (n1.real*n2.real)+(n1.img*n2.img);
+    mult.img = (n1.img*n2.real)+(n1.real*n2.img);
+    return mult;
+}
+
+int main(){
+    complexNo n1,n2,compSum,compDiff,compMult;
+    cin>>n1.real>>n1.img;
+    cin>>n2.real>>n2.img;
+    compSum = addComplexNum(n1,n2);
+    cout<<"Sum = "<<compSum.real<<" + "<<compSum.img<<"i"<<endl;
+    compDiff = subComplexNum(n1,n2);
+    cout<<"Difference = "<<compDiff.real<<" + "<<compDiff.img<<"i"<<endl;
+    compMult = multComplexNum(n1,n2);
+    cout<<"Product = "<<compMult.real<<" + "<<compMult.img<<"i";
+    return 0;
+}
