@@ -1,0 +1,24 @@
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+struct Student{
+    int sno;
+    char name[100];
+    float marks;
+};
+
+int main(){
+    struct Student s1,s2;
+    cout<<"Enter S.No. of Student1 = ";
+    cin>>s1.sno;
+    cout<<"Enter name of Student1 = ";
+    cin>>s1.name;
+    cout<<"Enter marks of Student1 = ";
+    cin>>s1.marks;
+    s2 = s1;
+    cout<<"S.No of Student2 = "<<s2.sno<<endl;
+    cout<<"Name of Student2 = "<<s2.name<<endl;
+    cout<<"Marks of Student2 = "<<s2.marks<<endl;
+    return 0;
+}
