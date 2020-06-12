@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+union uStudent{
+    int usno;
+    char uname[20];
+    float umarks;
+}us1;
+
+struct sStudent{
+    int ssno;
+    char sname[20];
+    float smarks;
+}ss1;
+
+int main()
+{
+    cout<<"Size of Union = "<<sizeof(us1)<<endl;
+    cout<<"Size of Structure = "<<sizeof(ss1)<<endl;
+    cout<<"Union Variables\n";
+    cout<<"Enter S.No = ";
+    cin>>us1.usno;
+    cout<<"Enter Name = ";
+    cin>>us1.uname;
+    cout<<"Enter marks = ";
+    cin>>us1.umarks;
+    cout<<"Student S.No = "<<us1.usno<<endl;
+    cout<<"Student Name = "<<us1.uname<<endl;
+    cout<<"Student marks = "<<us1.umarks<<endl;
+    return 0;
+}
