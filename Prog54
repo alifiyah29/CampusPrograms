@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+
+struct Employee {
+    int eid;
+    char ename[100];
+    float esalary;
+}obj,*ptr;
+
+int main(){
+    cout<<"Enter ID = ";
+    cin>>obj.eid;
+    cout<<"Enter Name = ";
+    cin>>obj.ename;
+    cout<<"Enter salary = ";
+    cin>>obj.esalary;
+    ptr = &obj;
+    cout<<"Employee S.No. = "<<ptr->eid<<endl;
+    cout<<"Employee name = "<<ptr->ename<<endl;
+    cout<<"Employee salary = "<<ptr->esalary<<endl;
+    return 0;
+}
