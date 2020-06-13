@@ -1,0 +1,87 @@
+#include <iostream>
+using namespace std;
+
+struct Node{
+    int data;
+    Node *nextnode;
+}*temp,*start=NULL, *newnode;
+
+void insertAtFirst(){
+    newnode = new Node;
+    cout<<"Enter Element at first = ";
+    cin>>newnode->data;
+    newnode->nextnode = start;
+    start = newnode;
+}
+
+void insertAtLast(){
+    newnode = new Node;
+    cout<<"Enter Element at Last = ";
+    cin>>newnode->data;
+    newnode-> nextnode = NULL;
+    temp = start;
+    while(temp->nextnode!=NULL){
+        temp = temp->nextnode;
+    }
+    temp->nextnode = newnode;
+}
+
+void insertAtPos(){
+    int pos;
+    cout<<"Enter position = ";
+    cin>>pos;
+    cout<<"Enter Element at given position = ";
+    newnode = new Node;
+    cin>>newnode->data;
+    for(int i=2;i<pos;i++){
+        temp = temp->nextnode;
+    }
+    newnode->nextnode = temp->nextnode;
+    temp->nextnode = newnode;
+}
+
+void traverse(){
+    temp = start;
+    cout<<"\nElements in Linked List are\n";
+    while(temp!=NULL){
+        cout<<temp->data<<" ";
+        temp = temp->nextnode;;
+    }
+}
+
+void deleteFromFirst(){
+    start = start->nextnode;
+}
+
+void deleteFromLast(){
+    temp=start;
+    while(temp->nextnode->nextnode!=NULL){
+        temp = temp->nextnode;
+    }
+    temp->nextnode = NULL;
+}
+
+void deleteFromPos(){
+    int pos;
+    cout<<"Enter position = ";
+    cin>>pos;
+    for(int i=2;i<pos;i++){
+        temp = temp->nextnode;
+    }
+    temp->nextnode = temp->nextnode->nextnode;
+}
+
+int main()
+{
+    insertAtFirst();
+    insertAtLast();
+    insertAtPos();
+    traverse();
+    deleteFromFirst();
+    traverse();
+    deleteFromLast();
+    traverse();
+    deleteFromPos();
+    traverse();
+    return 0;
+}
