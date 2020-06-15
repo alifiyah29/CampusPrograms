@@ -1,0 +1,128 @@
+#include <iostream>
+using namespace std;
+
+struct Dnode{
+    int data;
+    Dnode *prev;
+    Dnode *next;
+}*start = NULL, *temp, *newnode;
+
+void getNode(){
+    newnode = new Dnode;
+    cout<<"\nEnter Data = ";
+    cin>>newnode->data;
+    newnode->prev = NULL;
+    newnode->next = NULL;
+}
+
+void traverse(){
+    if(start == NULL)
+        cout<<"Empty List";
+    else{
+        cout<<"Elements in List\n";
+        temp = start;
+        while(temp!= NULL){
+            cout<<temp->data<<" ";
+            temp = temp->next;
+        }
+    }    
+}
+
+void insertAtFirst(){
+    getNode();
+    if(start == NULL){
+        start = newnode;
+    }
+    else{
+        start->prev = newnode;
+        newnode->next = start;
+        start = newnode;
+    }
+    traverse();
+}
+
+void insertAtLast(){
+    getNode();
+    if(start == NULL)
+        start = newnode;
+    else{
+        temp = start;
+        while(temp->next!= NULL){
+            temp = temp->next;
+        }
+        temp->next = newnode;
+        newnode->prev = temp;
+        newnode->next = NULL;
+    }    
+    traverse();
+}
+
+void insertAtPos(){
+    int pos;
+    cout<<"\nEnter position = ";
+    cin>>pos;
+    if(newnode == NULL)
+        cout<<"Overflow";
+    else{
+        temp = start;
+        for(int i=2;i<=pos-2;i++){
+            temp = temp->next;
+            if(temp == NULL){
+                cout<<"Invalid position";
+                return;
+            }
+        }
+        getNode();
+        newnode->next = temp->next;
+        newnode->prev = temp;
+        temp->next = newnode;
+        temp->next->prev = newnode;
+    }    
+    traverse();
+}
+
+void deleteFromFirst(){
+    start = start->next;
+    start->prev = NULL;
+    cout<<"\nNode deleted from first"<<endl;
+    traverse();
+}
+
+void deleteFromLast(){
+    temp = start;
+    if(temp!= NULL){
+        temp = temp->next;
+    }
+    temp->prev->next = NULL;
+    //free(temp);
+    cout<<"\nNode deleted from last"<<endl;
+    traverse();
+}
+
+void deleteFromPos(){
+    int pos;
+    cout<<"\nEnter position = ";
+    cin>>pos;
+    temp = start;
+    for(int i=2;i<=pos-2;i++){
+        temp = temp->next;
+        if(temp == NULL){
+            cout<<"Invalid position";
+            return;
+        }
+    }
+    temp->next = temp->next->next;
+    temp->next->prev = temp;
+    traverse();    
+}
+
+int main()
+{
+    insertAtFirst();
+    insertAtLast();
+    insertAtPos();
+    deleteFromFirst();
+    deleteFromLast();
+    deleteFromPos();
+    return 0;
+}
