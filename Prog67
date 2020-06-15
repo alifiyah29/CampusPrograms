@@ -1,0 +1,68 @@
+#include <iostream>
+using namespace std;
+
+struct node{
+    int data;
+    node *nextnode;
+}*start=NULL, *temp, *newnode;
+
+int n = 0;
+
+void getNode(){
+    newnode = new node;
+    cout<<"Enter element = ";
+    cin>>newnode->data;
+    newnode->nextnode = NULL;
+}
+
+void insertAtLast(){
+    getNode();
+    if(start == NULL){
+        start = newnode;
+    }
+    else{
+        temp = start;
+        while(temp->nextnode!=NULL){
+            temp = temp->nextnode;
+        }
+        temp->nextnode = newnode;
+    }
+}
+
+void traverse(){
+    temp = start;
+    cout<<"list is\n";
+    while(temp!= NULL){
+        cout<<temp->data<<" ";
+        temp = temp->nextnode;
+    }
+}
+
+void revList(){
+    struct node *prev, *curr;
+    cout<<"\nReversed list\n";
+    if(start!= NULL){
+        prev = start;
+        curr = start->nextnode;
+        start = start->nextnode;
+        prev->nextnode = NULL;
+    }
+    while(start!=NULL){
+        start = start->nextnode;
+        curr->nextnode = prev;
+        prev = curr;
+        curr = start;
+        // cout<<curr->data<<" ";
+    }
+    start = prev;
+}
+
+int main(){
+    insertAtLast();
+    insertAtLast();
+    insertAtLast();
+    traverse();
+    revList();
+    traverse();
+    return 0;
+}
