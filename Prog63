@@ -1,0 +1,65 @@
+#include <iostream>
+using namespace std;
+
+struct stack{
+    int data;
+    stack *next;
+}*top, *next, *temp, *newnode;
+
+void push(){
+    newnode = new stack;
+    cout<<"Enter Element = ";
+    cin>>newnode->data;
+    newnode->next = NULL;
+    newnode->next = top;
+    top = newnode;
+    cout<<"Element pushed successfully";
+ 
+}
+
+void pop(){
+    if(top == NULL)
+        cout<<"UNDERFLOW";
+    else{
+        top = top->next;
+        cout<<"Element poped successfully";
+    }    
+}
+
+void traverse(){
+    cout<<"Elements in stack are\n";
+    temp = top;
+    while(temp!= NULL){
+        cout<<temp->data<<" ";
+        temp = temp->next;
+    }
+}
+
+int main()
+{
+    int choice;
+    char c;
+    do{
+        cout<<"Enter your choice\n";
+        cout<<"1 - PUSH\n";
+        cout<<"2 - POP\n";
+        cout<<"3 - TRAVERSE\n";
+        cin>>choice;
+        switch(choice){
+            case 1:
+                push();
+                break;
+            case 2:
+                pop();
+                break;
+            case 3:
+                traverse();
+                break;
+            default:
+                cout<<"Invalid Choice";
+        }
+        cout<<"\nDo you want to continue?";
+        cin>>c;
+    }while(c=='y'||c=='Y');
+    return 0;
+}
