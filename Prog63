@@ -4,7 +4,7 @@ using namespace std;
 struct stack{
     int data;
     stack *next;
-}*top, *next, *temp, *newnode;
+}*top, *temp, *newnode;
 
 void push(){
     newnode = new stack;
