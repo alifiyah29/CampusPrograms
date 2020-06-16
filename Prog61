@@ -1,0 +1,63 @@
+#include <iostream>
+#define max 100 
+using namespace std;
+
+int stack[max], top = -1;
+
+void push(){
+    int item;
+    if(top == max)
+        cout<<"OVERFLOW";
+    else{
+        cout<<"Enter Element = ";
+        cin>>item;
+        stack[++top] = item;
+        cout<<"Element pushed successfully";
+    }
+}
+
+void pop(){
+    if(top == -1)
+        cout<<"UNDERFLOW";
+    else{
+        int temp = stack[top];
+        top = top -1;
+        cout<<"Element poped successfully";
+    }    
+}
+
+void traverse(){
+    cout<<"Elements in stack are\n";
+    for(int i=0;i<=top;i++){
+        cout<<stack[i]<<" ";
+    }
+}
+
+int main()
+{
+    int choice;
+    char c;
+    do{
+        cout<<"Enter your choice\n";
+        cout<<"1 - PUSH\n";
+        cout<<"2 - POP\n";
+        cout<<"3 - TRAVERSE\n";
+        cin>>choice;
+        switch(choice){
+            case 1:
+                push();
+                break;
+            case 2:
+                pop();
+                break;
+            case 3:
+                traverse();
+                break;
+            default:
+                cout<<"Invalid Choice";
+        }
+        cout<<"\nDo you want to continue?";
+        cin>>c;
+    }while(c=='y'||c=='Y');
+    return 0;
+}
