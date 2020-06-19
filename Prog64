@@ -1,0 +1,74 @@
+#include <iostream>
+using namespace std;
+
+struct qnode{
+    int data;
+    qnode *nextnode;
+}*front = NULL, *rear = NULL, *temp, *newnode;
+
+void enqueue(){
+//Insert at last
+    newnode = new qnode;
+    cout<<"Enter element = ";
+    cin>>newnode->data;
+    newnode->nextnode = NULL;
+    if(front == NULL){
+        front = newnode;
+        rear = newnode;
+        front->nextnode = NULL;
+        rear->nextnode = NULL;
+        cout<<"Element inserted successfully\n";
+    }
+    else{
+        rear->nextnode = newnode;
+        rear = newnode;
+        cout<<"Element inserted successfully\n";
+    }
+}
+
+void dequeue(){
+    if(front == NULL)
+        cout<<"UNDERFLOW\n";
+    else{
+        front = front->nextnode;
+        cout<<"Element deleted successfully\n";
+    }    
+}
+
+void traverse(){
+    cout<<"\nElements in queue\n";
+    temp = front;
+    while(temp!= NULL){
+        cout<<temp->data<<" ";
+        temp = temp->nextnode;
+    }
+    
+}
+
+int main()
+{
+    int choice;
+    char c;
+    do{
+        cout<<"1 - ENQUEUE\n";
+        cout<<"2 - DEQUEUE\n";
+        cout<<"3 - TRAVERSE\n";
+        cin>>choice;
+        switch(choice){
+            case 1:
+            enqueue();
+            break;
+            case 2:
+            dequeue();
+            break;
+            case 3:
+            traverse();
+            break;
+            default:
+            cout<<"Invalid value";
+        }
+        cout<<"\nDo you want to continue?";
+        cin>>c;
+    }while(c=='y'||c=='Y');
+    return 0;
+}
