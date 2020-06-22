@@ -1,0 +1,100 @@
+#include <iostream>
+using namespace std;
+
+struct node{
+    int data;
+    node *nextnode;
+}*start1 = NULL, *temp1, *newnode, *start2 = NULL, *temp2;
+
+void createLinkedlist1(){
+    newnode = new node;
+    cout<<"Enter element for Linked List1 = ";
+    cin>>newnode->data;
+    newnode->nextnode = NULL;
+    if(start1 == NULL){
+        start1 = newnode;
+    }
+    else{
+        temp1 = start1;
+        while(temp1->nextnode!= NULL){
+            temp1 = temp1->nextnode;
+        }
+        temp1->nextnode = newnode;
+    }
+    cout<<"Node inserted successfully\n";
+}
+
+void createLinkedlist2(){
+    newnode = new node;
+    cout<<"Enter element for Linked List2 = ";
+    cin>>newnode->data;
+    newnode->nextnode = NULL;
+    if(start2 == NULL){
+        start2 = newnode;
+    }
+    else{
+        temp2 = start2;
+        while(temp2->nextnode!= NULL){
+            temp2 = temp2->nextnode;
+        }
+        temp2->nextnode = newnode;
+    }
+    cout<<"Node inserted successfully\n";
+}
+
+void combine(){
+    cout<<"Combined list\n";
+    temp1 = start1;
+    while(temp1->nextnode!= NULL){
+        temp1 = temp1->nextnode;
+    }
+    temp1->nextnode = start2;
+}
+
+void traverse1(){
+    temp1 = start1;
+    while(temp1!= NULL){
+        cout<<temp1->data<<" ";
+        temp1 = temp1->nextnode;
+    }
+}
+
+void traverse2(){
+    temp2 = start2;
+    while(temp2!= NULL){
+        cout<<temp2->data<<" ";
+        temp2 = temp2->nextnode;
+    }
+}
+
+int main()
+{
+    int choice;
+    char c;
+    do{
+        cout<<"Enter choice\n";
+        cout<<"1-Insert in linked list 1\n";
+        cout<<"2-Insert in linked list 2\n";
+        cin>>choice;
+        switch(choice){
+            case 1:
+                createLinkedlist1();
+                break;
+            case 2:
+                createLinkedlist2();
+                break;
+            default:
+                cout<<"Invalid choice";
+        }
+        cout<<"Do you want to continue?";
+        cin>>c;
+    }while(c=='Y'||c=='y');
+    cout<<"Elements in Linked list 1\n";
+    traverse1();
+    cout<<"\nElements in Linked list 2\n";
+    traverse2();  
+    cout<<"Combined list\n";
+    combine();
+    traverse1();
+    return 0;
+}
