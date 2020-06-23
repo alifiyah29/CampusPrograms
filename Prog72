@@ -1,0 +1,36 @@
+#include <iostream>
+#define max 10
+using namespace std;
+
+int main(){
+    int M1[max][max], M2[max][max], diff[max][max], row1,col1,row2,col2;
+    cout<<"Enter rows and column for Matrix 1 = ";
+    cin>>row1>>col1;
+    cout<<"Enter rows and column for Matrix 2 = ";
+    cin>>row2>>col2;  
+    cout<<"Enter Matrix - 1\n";
+    for(int i=0;i<row1;i++){
+        for(int j=0;j<col1;j++){
+            cin>>M1[i][j];
+        }
+    }
+    cout<<"Enter Matrix - 2\n";
+    for(int i=0;i<row2;i++){
+        for(int j=0;j<col2;j++){
+            cin>>M2[i][j];
+        }
+    }    
+    for(int i=0;i<row2;i++){
+        for(int j=0;j<col2;j++){
+            diff[i][j] = M1[i][j]-M2[i][j];
+        }
+    }      
+    cout<<"Difference of Matrices\n";    
+    for(int i=0;i<row2;i++){
+        for(int j=0;j<col2;j++){
+            cout<<diff[i][j]<<" ";
+        }
+        cout<<endl;
+    }      
+    return 0;
+}
