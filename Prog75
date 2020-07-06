@@ -1,0 +1,26 @@
+#include <stdio.h>
+#define max 100
+main()
+{
+    int M[max][max], r, c, MT[max][max];
+    printf("Enter rows and cols of Matrix = ");
+    scanf("%d%d",&r,&c);
+    printf("Enter elements of M1\n");
+    for(int i=0;i<r;i++){
+        for(int j=0;j<c;j++){
+            scanf("%d",&M[i][j]);
+        }
+    }
+    for(int i=0;i<r;i++){
+        for(int j=0;j<c;j++){
+        MT[j][i] = M[i][j];
+        }
+    }   
+    printf("Transpose of Matrix is\n");
+    for(int i=0;i<r;i++){
+        for(int j=0;j<c;j++){
+        printf("%d ",MT[i][j]);
+        }
+        printf("\n");
+    }    
+}
