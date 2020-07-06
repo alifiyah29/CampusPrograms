@@ -1,0 +1,27 @@
+#include <iostream>
+#define max 100
+using namespace std;
+
+int main()
+{
+    int M[max][max], r, c,sum = 0,d1 = 0,d2 = 0;
+    cout<<"Enter rows and cols of Matrix = ";
+    cin>>r>>c;
+    cout<<"Enter elements of M1\n";
+    for(int i=0;i<r;i++){
+        for(int j=0;j<c;j++){
+            cin>>M[i][j];
+        }
+    }
+    for(int i=0;i<r;i++){
+        for(int j=0;j<c;j++){
+            if(i==j) 
+                d1+= M[i][j]; 
+            if(i+j==2)  
+                d2+= M[i][j]; 
+        }
+    }    
+    sum = d1+d2;
+    cout<<"Sum = "<<sum;
+    return 0;
+}
