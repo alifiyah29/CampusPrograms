@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int dextern;
+extern int dextern =0;
 
 void autoDemo(){
     cout<<"Automatic storage class\n";
